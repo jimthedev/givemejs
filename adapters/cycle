@@ -1,0 +1,48 @@
+
+npm install --save --save-exact \
+  @cycle/core \
+  @cycle/dom \
+  rx
+
+touch ./src/index.js
+cat <<EOF > ./src/index.js
+
+// This is rx.js, a reactive programming framework
+import Rx from 'rx';
+
+// This is cycle :D
+import Cycle from '@cycle/core';
+import CycleDOM from '@cycle/dom';
+
+// App entry point
+function main() {
+  
+  // Our app returns an object
+  return {
+    
+    /**
+     * The returned object has a key for every adapter
+     * that we provided. It defined an observable that
+     * is sending values every so often.
+     * 
+     * In a real app we would be the one's dispatching
+     * things to the dom. But for now let's just have
+     * Rx do it. 
+     */ 
+    DOM: Rx.Observable.interval(1000)
+      .map(i => CycleDOM.h(
+        'h1', '' + i + ' seconds elapsed'
+      ))
+  };
+  
+}
+
+// Cycle drivers
+let drivers = {
+  DOM: CycleDOM.makeDOMDriver('#app')
+};
+
+// Bootstrap the app using the cycle drivers
+Cycle.run(main, drivers);
+
+EOF

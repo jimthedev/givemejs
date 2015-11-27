@@ -1,0 +1,30 @@
+{
+  "name": "givemejs",
+  "description": "Generate opinionated Javascript projects on OSX",
+  "version": "0.0.0-semantically-released",
+  "scripts": {
+    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "author": "Jim Cummins <jimthedev@gmail.com> (http://github.com/jimthedev)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimthedev/givemejs.git"
+  },
+  "bin": {
+    "givemejs": "./gimme"
+  },
+  "devDependencies": {
+    "commitizen": "2.4.6",
+    "cz-conventional-changelog": "1.1.4",
+    "ghooks": "1.0.1",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
