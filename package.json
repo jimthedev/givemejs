@@ -14,7 +14,7 @@
     "url": "https://github.com/jimthedev/givemejs.git"
   },
   "bin": {
-    "givemejs": "./gimme"
+    "givemejs": "./gimme.sh"
   },
   "devDependencies": {
     "commitizen": "2.4.6",
